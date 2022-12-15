@@ -4,7 +4,7 @@ import { PagesComponent } from './pages.component';
 //import { HomeComponent } from './home/home.component';
 import { PagesRoutingModule } from './pages-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { BsModalService, BsModalRef, ModalModule } from 'ngx-bootstrap/modal';
+//import { BsModalService, BsModalRef, ModalModule } from 'ngx-bootstrap/modal';
 //import {MatInputModule} from '@angular/material/input';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 //import {MatDialogModule} from '@angular/material/dialog';
@@ -17,7 +17,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
   ],
 
   imports: [
-   ModalModule.forRoot(),
+  // ModalModule.forRoot(),
     PagesRoutingModule,
     BrowserModule,
     HttpClientModule,
