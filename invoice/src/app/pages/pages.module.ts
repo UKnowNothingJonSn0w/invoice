@@ -1,29 +1,35 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { PagesComponent } from './pages.component';
-//import { HomeComponent } from './home/home.component';
 import { PagesRoutingModule } from './pages-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-//import { BsModalService, BsModalRef, ModalModule } from 'ngx-bootstrap/modal';
-//import {MatInputModule} from '@angular/material/input';
+import { BsModalService, BsModalRef, ModalModule } from 'ngx-bootstrap/modal';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-//import {MatDialogModule} from '@angular/material/dialog';
-//import * as AOS from 'aos';
+import { HomeComponent } from './home/home.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatListModule} from '@angular/material/list';
+import {MatIconModule} from '@angular/material/icon';
+import { FlexLayoutModule } from "@angular/flex-layout";
+
 
 @NgModule({
   declarations: [
     PagesComponent,
-   // HomeComponent,
+    HomeComponent,
   ],
 
   imports: [
-  // ModalModule.forRoot(),
+   ModalModule.forRoot(),
     PagesRoutingModule,
     BrowserModule,
     HttpClientModule,
-   // MatInputModule,
     FormsModule,
-    //MatDialogModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule,
+    MatIconModule,
+    FlexLayoutModule
   ],
 
   providers: [],

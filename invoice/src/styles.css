@@ -1,1 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+* {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+
+ mat-toolbar-row{
+    background-color: #673ab7;
+ }
+ .mat-toolbar-row, .mat-toolbar-single-row{
+    align-items: unset!important;
+    padding: 0px!important;
+ }
+ mat-nav-list{
+   position: fixed;
+    background-color: aquamarine;
+    height: 100%;
+ }
+ mat-sidenav-container{
+   min-width: auto!important;
+   width: auto!important;
+ }
+ mat-drawer-container{
+   position: unset!important;
+ }
+ .mat-drawer-container{
+  position: unset!important;
+ }
