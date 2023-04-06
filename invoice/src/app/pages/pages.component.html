@@ -1,262 +1,51 @@
-<!--<mat-drawer-container class="example-container" autosize>
-    <mat-drawer #drawer class="example-sidenav" mode="side">
-        <h1>MENU</h1>
-        <div class="sidebar-content">
-            <div class="single-item">
-                <a class="nav-link menu-item" routerLink="/home">
-                    <h1> New invoice</h1>
-                </a>
-            </div>
-            <div class="single-item">
-                <a class="nav-link menu-item" routerLink="/devices">
-                    <h1>Preview invoice</h1>
-                </a>
-            </div>
-        </div>
-    </mat-drawer>
-    <mat-toolbar>
-        <div class="sidebar-opener" mat-button (click)="drawer.toggle()"
-            style="cursor: pointer;left:10px;top:10px;display: flex;">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
-                style="width: 50px;height:50px;padding-left:10px;  background: #673ab7;">
-                <path
-                    d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z" />
-            </svg>
-            <h2>KLG invoice generator</h2>
-        </div>
-    </mat-toolbar>
-    <div class="example-sidenav-content">
-        <div class="main">
-            <div class="route">
-                <router-outlet></router-outlet>
-            </div>
-        </div>
-    </div>
-</mat-drawer-container>
-<div class="body">
-    <mat-toolbar color="primary">
-      <mat-toolbar-row>  
-        <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
-          <mat-icon>menu</mat-icon>
-        </button>
-       <span class="menu-spacer"></span>
-        <div fxShow="true" fxHide.lt-md>
-           The following menu items will be hidden on both SM and XS screen sizes
-          <mat-drawer-container class="example-container">
-            <mat-drawer-content>Main content</mat-drawer-content>
-          </mat-drawer-container>
-         <mat-sidenav-container >
-            <mat-sidenav>
-                ssgssssssssssssssssgsgsvcsv
-            </mat-sidenav>
-            </mat-sidenav-container>
-        </div>
-      </mat-toolbar-row>
-    </mat-toolbar>
-  
-    <mat-sidenav-container fxFlexFill>
-      <mat-sidenav #sidenav>
-        <mat-nav-list>
-          <a (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
-          <a href="#" mat-list-item>Menu Item 1</a>
-          <a href="#" mat-list-item>Menu Item 2</a>
-          <a href="#" mat-list-item>Menu Item 3</a>
-          <a href="#" mat-list-item>Menu Item 4</a>
-          <a href="#" mat-list-item>Menu Item 5</a>
-          <a href="#"mat-list-item>Menu Item 6</a>
-        </mat-nav-list>
-      </mat-sidenav>
-      <mat-sidenav-content fxFlexFill> <div class="route">
-        <router-outlet></router-outlet>
-    </div></mat-sidenav-content>
-    </mat-sidenav-container>
-  </div>-->
-<!-- NOWEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
-  <mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <button
-        mat-icon-button
-        (click)="sidenav.toggle()"
-        fxShow="true"
-        fxHide.gt-sm
-      >
-        <mat-icon>menu</mat-icon>
-      </button>
-      <span style="background-color: antiquewhite;">KLG invoice generator</span>
-      <span class="menu-spacer"></span>
-    </mat-toolbar-row>
-  </mat-toolbar>
-  <div style="display:flex;">
-    <div fxShow="true" fxHide.lt-md>
-      <div class="nav" style="display:flex;flex-direction:column;">
-        <h1>MENU</h1>
-        The following menu items will be hidden on both SM and XS screen sizes 
-        <a href="#" mat-button>Menu Item 1</a>
-        <a href="#" mat-button>Menu Item 2</a>
-        <a href="#" mat-button>Menu Item 3</a>
-        <a href="#" mat-button>Menu Item 4</a>
-        <a href="#" mat-button>Menu Item 5</a>
-        <a href="#" mat-button>Menu Item 6</a>
-      </div>
-    </div>
-  
-    <mat-sidenav-container fxFlexFill>
-      <mat-sidenav #sidenav>
-        <mat-nav-list>
-          <a (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
-          <a href="#" mat-list-item>Menu Item 1</a>
-          <a href="#" mat-list-item>Menu Item 2</a>
-          <a href="#" mat-list-item>Menu Item 3</a>
-          <a href="#" mat-list-item>Menu Item 4</a>
-          <a href="#" mat-list-item>Menu Item 5</a>
-          <a href="#" mat-list-item>Menu Item 6</a>
-        </mat-nav-list>
-      </mat-sidenav>
-      <mat-sidenav-content fxFlexFill>Main content</mat-sidenav-content>
-    </mat-sidenav-container>
-  </div>-->
-  
-<!--<div fxShow="true" > 77777777777777777777777777777777777777777777777
-  <div class="body">
-    <mat-drawer-container class="example-container" fxHide.lt-md>
-      <mat-drawer mode="side" opened>
-        <mat-toolbar >
-          <mat-toolbar-row style="background-color: antiquewhite;">
-            <span>MENU</span>
-          </mat-toolbar-row>
-        </mat-toolbar>
-        <div fxShow="true" fxHide.lt-md>
-          <div class="nav" style="display:flex;flex-direction:column;">
-            <a href="#" mat-button>Menu Item 1</a>
-            <a href="#" mat-button>Menu Item 2</a>
-            <a href="#" mat-button>Menu Item 3</a>
-          </div>
-        </div>
-      </mat-drawer>
-    <mat-drawer-content>
-      <mat-toolbar color="primary">
-        <mat-toolbar-row>
-          <h1>KLG invoice generator</h1>
-        </mat-toolbar-row>
-      </mat-toolbar>
-        sgsgsgsgsgsrgsrgssgsgryyrhbfbxxvxfsghshgs
-      </mat-drawer-content>
-    </mat-drawer-container>
-  </div>
-</div>
-
-<mat-sidenav-container fxFlexFill>
-  <mat-sidenav #sidenav>
-    <mat-nav-list>
-      <a (click)="sidenav.toggle()" href="" mat-list-item>Close</a>
-      <a href="#" mat-list-item>Menu Item 1</a>
-      <a href="#" mat-list-item>Menu Item 2</a>
-      <a href="#" mat-list-item>Menu Item 3</a>
-      <a href="#" mat-list-item>Menu Item 4</a>
-      <a href="#" mat-list-item>Menu Item 5</a>
-      <a href="#" mat-list-item>Menu Item 6</a>
-    </mat-nav-list>
-  </mat-sidenav>
-  
-  <mat-sidenav-content fxFlexFill>Main content</mat-sidenav-content>
-</mat-sidenav-container>-->
-
-<!--<div style="height: 100vh;"> 5555555555555555555555555555555555555555555
-  <mat-toolbar color="primary">
-    <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
-      fxHide.gt-sm - widoczne tylko dla małych 
-      fxHide.lt-md -- widoczne tylko dla duzych 
-     
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span>Responsive Navigation</span>
-    <span class="example-spacer"></span>
-    <div fxShow="true" fxHide.lt-md>
-      The following menu items will be hidden on both SM and XS screen sizes 
-      <a href="#" mat-button>Menu Item 1</a>
-      <a href="#" mat-button>Menu Item 2</a>
-      <a href="#" mat-button>Menu Item 3</a>
-      <a href="#" mat-button>Menu Item 4</a>
-      <a href="#" mat-button>Menu Item 5</a>
-      <a href="#" mat-button>Menu Item 6</a>
-    </div>
-  </mat-toolbar>
-
-  <mat-sidenav-container fxFlexFill class="example-container">
-    <mat-sidenav #sidenav fxLayout="column">
-      <div fxLayout="column">
-        <a (click)="sidenav.toggle()" href="" mat-button>Close</a>
-        <a href="#" mat-button>Menu Item 1</a>
-        <a href="#" mat-button>Menu Item 2</a>
-        <a href="#" mat-button>Menu Item 3</a>
-        <a href="#" mat-button>Menu Item 4</a>
-        <a href="#" mat-button>Menu Item 5</a>
-        <a href="#" mat-button>Menu Item 6</a>
-      </div>
-    </mat-sidenav>
-    <mat-sidenav-content fxFlexFill>Main content</mat-sidenav-content>
-  </mat-sidenav-container>
-</div>
-fxHide.gt-sm - widoczne tylko dla małych 
-      fxHide.lt-md -- widoczne tylko dla duzych
--->
-
 <div fxShow="true">
   <div class="body">
     <mat-drawer-container class="example-container" fxHide.lt-md>
       <mat-drawer mode="side" opened>
-        <mat-toolbar >
-          <mat-toolbar-row style="background-color: antiquewhite;">
+        <mat-toolbar>
+          <mat-toolbar-row>
             <span>MENU</span>
           </mat-toolbar-row>
         </mat-toolbar>
         <div fxShow="true" fxHide.lt-md>
           <div class="nav" style="display:flex;flex-direction:column;">
-            <a href="#" mat-button>Menu Item 1</a>
-            <a href="#" mat-button>Menu Item 2</a>
-            <a href="#" mat-button>Menu Item 3</a>
+            <a routerLink="/new-invoice">New Invoice</a>
+            <a routerLink="/preview-invoice">Preview Invoice</a>
           </div>
         </div>
       </mat-drawer>
-    <mat-drawer-content>
-      <mat-toolbar color="primary">
-        <mat-toolbar-row>
-          <h1>KLG invoice generator</h1>
-        </mat-toolbar-row>
-      </mat-toolbar>
-        sgsgsgsgsgsrgsrgssgsgryyrhbfbxxvxfsghshgs
+      <mat-drawer-content>
+        <mat-toolbar color="primary">
+          <mat-toolbar-row>
+            <h1>KLG invoice generator</h1>
+          </mat-toolbar-row>
+        </mat-toolbar>
+        <div class="route">
+          <router-outlet></router-outlet>
+        </div>
       </mat-drawer-content>
     </mat-drawer-container>
-<!---->
-<div class="body2" fxHide.gt-sm>
-<mat-toolbar color="primary" >
-  <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" >
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span>Responsive Navigation</span>
-  <div fxShow="true" fxHide.lt-md>
-    The following menu items will be hidden on both SM and XS screen sizes 
-    <a href="#" mat-button>Menu Item 1</a>
-    <a href="#" mat-button>Menu Item 2</a>
-    <a href="#" mat-button>Menu Item 3</a>
-    <a href="#" mat-button>Menu Item 4</a>
-    <a href="#" mat-button>Menu Item 5</a>
-    <a href="#" mat-button>Menu Item 6</a>
-  </div>
-</mat-toolbar>
-<mat-sidenav-container fxFlexFill class="example-container">
-  <mat-sidenav #sidenav fxLayout="column">
-    <div fxLayout="column">
-      <a href="#" mat-button>Menu Item 1</a>
-      <a href="#" mat-button>Menu Item 2</a>
-      <a href="#" mat-button>Menu Item 3</a>
-      <a href="#" mat-button>Menu Item 4</a>
-      <a href="#" mat-button>Menu Item 5</a>
-      <a href="#" mat-button>Menu Item 6</a>
+    <!-- NA DOLE Mały EKRAN U GORY duży-->
+    <div class="body2" fxHide.gt-sm>
+      <mat-toolbar color="primary">
+        <button class="menu-button" mat-icon-button (click)="sidenav.toggle()" fxShow="true" color="primary">
+          <mat-icon color="OnPrimary">menu</mat-icon>
+        </button>
+        <span>KLG invoice generator</span>
+      </mat-toolbar>
+      <mat-sidenav-container fxFlexFill class="example-container">
+        <mat-sidenav #sidenav fxLayout="column">
+          <div fxLayout="column">
+            <a routerLink="/new-invoice">New Invoice</a>
+            <a routerLink="/preview-invoice">Preview Invoice</a>
+          </div>
+        </mat-sidenav>
+        <mat-sidenav-content fxFlexFill>
+          <div class="route">
+            <router-outlet></router-outlet>
+          </div>
+        </mat-sidenav-content>
+      </mat-sidenav-container>
     </div>
-  </mat-sidenav>
-  <mat-sidenav-content fxFlexFill>Main content</mat-sidenav-content>
-</mat-sidenav-container>
-</div>
   </div>
 </div>
