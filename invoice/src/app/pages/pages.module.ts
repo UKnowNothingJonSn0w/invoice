@@ -12,6 +12,10 @@ import {MatIconModule} from '@angular/material/icon';
 import { FlexLayoutModule } from "@angular/flex-layout";
 import { NewInvoiceComponent } from './new-invoice/new-invoice.component';
 import { PreviewInvoiceComponent } from './preview-invoice/preview-invoice.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 
 @NgModule({
@@ -31,7 +35,12 @@ import { PreviewInvoiceComponent } from './preview-invoice/preview-invoice.compo
     MatToolbarModule,
     MatListModule,
     MatIconModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    ReactiveFormsModule,
+    MatTooltipModule,
   ],
 
   providers: [],

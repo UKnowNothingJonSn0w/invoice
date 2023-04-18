@@ -39,3 +39,6 @@ mat-toolbar mat-toolbar-single-row{
   background-color: #673ab7;
   color: #fff;
 }
+mat-drawer-content{
+  height: 100vh;
+}

@@ -11,7 +11,7 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: '/new-invoice', pathMatch: 'full' },
       { path: 'new-invoice', component: NewInvoiceComponent },
-      { path: 'preview-invoice', component: PreviewInvoiceComponent  },
+      { path: 'preview-invoice', component: PreviewInvoiceComponent},
 
     ],
   },

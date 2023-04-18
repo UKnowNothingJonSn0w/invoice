@@ -1,1 +1,36 @@
-<p>new-invoice works!</p>
+<form #exampleForm class="example-form">
+  <div *ngFor="let item of items">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input type="text" matInput [formControl]="item.emailFormControl" [errorStateMatcher]="matcher" required >
+      <mat-error *ngIf="item.emailFormControl.hasError('email') && !item.emailFormControl.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="item.emailFormControl.hasError('required')">
+        Please enter name
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Count</mat-label>
+      <input type="number" matInput value="1" required>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Price</mat-label>
+      <input type="number" matInput [formControl]="item.priceFormControl" [errorStateMatcher]="matcher" required>
+      <mat-error *ngIf="item.priceFormControl.hasError('email') && !item.priceFormControl.hasError('required')">
+      </mat-error>
+      <mat-error *ngIf="item.priceFormControl.hasError('required')">
+        Min 1
+      </mat-error>
+    </mat-form-field>
+    <button mat-icon-button color="primary" class="delete" matTooltip="Remove item" (click)="deleteForm(item)">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+  <div class="add-new">
+    <button mat-icon-button color="primary" class="add" matTooltip="Add new item" (click)="addForm()"> 
+      <mat-icon>add</mat-icon>
+      Add new item
+    </button>
+  </div>
+</form>
