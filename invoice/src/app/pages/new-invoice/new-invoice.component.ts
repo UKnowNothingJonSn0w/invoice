@@ -11,10 +11,20 @@ import { ViewChild, ElementRef } from '@angular/core';
 export class NewInvoiceComponent {
 
   items: any[] = [
-    { emailFormControl: new FormControl(), priceFormControl: new FormControl() }
+    { nameFormControl: new FormControl(), priceFormControl: new FormControl() }
   ];
 
   formRows: any[] = [{ name: '', count: 1, price: '' }];
+
+  constructor() { }
+
+  ngOnInit() {
+    // Odczytaj dane z sessionStorage
+    const formData = sessionStorage.getItem('formData');
+    if (formData) {
+      this.items = JSON.parse(formData);
+    }
+  }
 
   addFormRow() {
     this.formRows.push({ name: '', count: 1, price: '' });
@@ -26,13 +36,13 @@ export class NewInvoiceComponent {
     const isSubmitted = form && form.submitted;
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
-  emailFormControl = new FormControl('', [Validators.required]);
-  countFormControl = new FormControl('', [Validators.required]);
+  //nameFormControl = new FormControl('', [Validators.required]);
+  //countFormControl = new FormControl('', [Validators.required]);
 
   matcher = new ErrorStateMatcher();
   
   addForm() {
-    this.items.push({ emailFormControl: new FormControl(), priceFormControl: new FormControl() });
+    this.items.push({ nameFormControl: new FormControl(), priceFormControl: new FormControl() });
   }
 
   deleteForm(item: any) {
@@ -40,6 +50,11 @@ export class NewInvoiceComponent {
     if (index !== -1) {
       this.items.splice(index, 1);
     }
+  }
+  addData() {
+    // Zapisz dane do sessionStorage
+    sessionStorage.setItem('formData', JSON.stringify(this.items));
+    console.log(this.items)
   }
 }
 
