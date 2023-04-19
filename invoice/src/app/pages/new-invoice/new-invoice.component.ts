@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 import { ViewChild, ElementRef } from '@angular/core';
@@ -8,7 +8,7 @@ import { ViewChild, ElementRef } from '@angular/core';
   templateUrl: './new-invoice.component.html',
   styleUrls: ['./new-invoice.component.css']
 })
-export class NewInvoiceComponent {
+export class NewInvoiceComponent implements OnInit {
 
   items: any[] = [
     { nameFormControl: new FormControl(), priceFormControl: new FormControl() }
@@ -36,8 +36,6 @@ export class NewInvoiceComponent {
     const isSubmitted = form && form.submitted;
     return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
   }
-  //nameFormControl = new FormControl('', [Validators.required]);
-  //countFormControl = new FormControl('', [Validators.required]);
 
   matcher = new ErrorStateMatcher();
   
@@ -51,10 +49,10 @@ export class NewInvoiceComponent {
       this.items.splice(index, 1);
     }
   }
+
   addData() {
-    // Zapisz dane do sessionStorage
-    sessionStorage.setItem('formData', JSON.stringify(this.items));
-    console.log(this.items)
+    const itemsToSave = this.items.map(item => ({ name: item.nameFormControl.value, price: item.priceFormControl.value }));
+    sessionStorage.setItem('formData', JSON.stringify(itemsToSave));
+    console.log(itemsToSave);
   }
 }
-
