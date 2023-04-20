@@ -16,7 +16,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTooltipModule} from '@angular/material/tooltip';
-
+import { PagesService } from './pages.service';
+import { RouteService } from './route.service';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
     MatTooltipModule,
   ],
 
-  providers: [],
+  providers: [PagesService, RouteService],
   bootstrap: [PagesComponent],
 })
 export class PagesModule {}

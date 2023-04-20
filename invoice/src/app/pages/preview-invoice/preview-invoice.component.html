@@ -1,2 +1,22 @@
-<p>preview-invoice works!</p>
-dndndnd
+<table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Count</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let row of formRows">
+        <td>{{ row.name }}</td>
+        <td>{{ row.count }}</td>
+        <td>{{ row.price }}</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="2"><strong>Total:</strong></td>
+        <td>{{ getTotal() }}</td>
+      </tr>
+    </tfoot>
+  </table>
