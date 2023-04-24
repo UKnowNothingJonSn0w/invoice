@@ -3,6 +3,7 @@ import {FormControl, FormGroupDirective, NgForm, Validators, FormBuilder, FormGr
 import {ErrorStateMatcher} from '@angular/material/core';
 import { ViewChild, ElementRef } from '@angular/core';
 import { PagesService } from '../pages.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-invoice',
@@ -10,8 +11,8 @@ import { PagesService } from '../pages.service';
   styleUrls: ['./new-invoice.component.css']
 })
 export class NewInvoiceComponent implements OnInit {
-addShipForm!: FormGroup;
-  get addShipF() { return this.addShipForm.controls; }
+addInvoiceForm!: FormGroup;
+  get addInvoiceF() { return this.addInvoiceForm.controls; }
   
   items: any[] = [
     { nameFormControl: new FormControl(), countFormControl: new FormControl(), priceFormControl: new FormControl() }
@@ -21,12 +22,21 @@ addShipForm!: FormGroup;
 
   constructor( 
     private formBuilder: FormBuilder,
-    private pagesService: PagesService
-    ) { }
+    private pagesService: PagesService,
+    private router: Router
+    ) { 
+      window.addEventListener('beforeunload', () => {
+        for (let key in localStorage) {
+          if (key.includes('formRows')) {
+            localStorage.removeItem(key);
+          }
+        }
+      });
+    }
 
 
     ngOnInit(): void {
-      this.addShipForm = this.formBuilder.group({
+      this.addInvoiceForm = this.formBuilder.group({
         name: [''],
         count: [''],
         price: [''],
@@ -48,13 +58,14 @@ addForm() {
     }
   }
 
-  addShip() {
+  addData() {
     this.formRows = this.items.map(item => ({
       name: item.nameFormControl.value || '',
       count: item.countFormControl ? item.countFormControl.value : '',
-      price: item.priceFormControl.value || ''
+      price: item.priceFormControl.value || '' 
     }));
     this.pagesService.setFormData(this.formRows);
     console.log(this.formRows);
+    this.router.navigate(['/preview-invoice']);
   }
 }

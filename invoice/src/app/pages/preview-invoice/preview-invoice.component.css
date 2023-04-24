@@ -1,0 +1,13 @@
+.info{
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    padding: 0px 16px;
+}
+table,  th, td{
+    width: 500px;
+    margin-left: 16px;
+    border: 1px solid;
+    border-color: #ddd;
+   
+}
+

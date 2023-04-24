@@ -7,10 +7,9 @@ import { map } from 'rxjs/operators';
 @Injectable()
 
 export class PagesService {
-    constructor(private http: HttpClient) {
-    }
+  private formData: any[] = [];
 
-    private formData: any[] = [];
+  constructor(private http: HttpClient) {}
 
   setFormData(formData: any[]) {
     this.formData = formData;
@@ -19,4 +18,15 @@ export class PagesService {
   getFormData() {
     return this.formData;
   }
+
+  clearFormData() {
+    this.formData = [];
+  }
+
+  invoiceData():  Observable<any> {
+    return this.http.get<any>(`http://localhost:3000/data`).pipe(
+      map(response => {
+          return response;})
+      )
+  };
 }

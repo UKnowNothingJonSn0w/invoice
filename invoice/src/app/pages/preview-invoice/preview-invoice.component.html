@@ -1,22 +1,32 @@
-<table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Count</th>
-        <th>Price</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let row of formRows">
-        <td>{{ row.name }}</td>
-        <td>{{ row.count }}</td>
-        <td>{{ row.price }}</td>
-      </tr>
-    </tbody>
-    <tfoot>
-      <tr>
-        <td colspan="2"><strong>Total:</strong></td>
-        <td>{{ getTotal() }}</td>
-      </tr>
-    </tfoot>
-  </table>
+<div class="info" *ngFor="let info of data">
+  <h1>{{ info.name }}</h1>
+
+  <h2>{{ info.address }}</h2>
+
+  <p> Phones: {{ info.phones }}</p>
+
+</div>
+<div *ngIf="formRows.length === 0" style="padding-left: 16px;border-top: 1px solid;"> no items</div>
+
+<table *ngIf="formRows.length > 0">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Count</th>
+      <th>Price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of formRows">
+      <td>{{ row.name }}</td>
+      <td>{{ row.count }}</td>
+      <td>{{ row.price }}</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="2"><strong>Total:</strong></td>
+      <td>{{ getTotal() }}</td>
+    </tr>
+  </tfoot>
+</table>

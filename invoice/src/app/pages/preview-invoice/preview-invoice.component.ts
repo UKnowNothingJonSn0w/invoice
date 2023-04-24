@@ -1,6 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { PagesService } from '../pages.service';
-import { RouteService } from '../route.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-preview-invoice',
@@ -8,21 +8,29 @@ import { RouteService } from '../route.service';
   styleUrls: ['./preview-invoice.component.css']
 })
 export class PreviewInvoiceComponent implements OnDestroy {
-
   formRows: any[] = [];
-
-  constructor(private pagesService: PagesService, 
-    private routeService: RouteService,  ) {}
+  subscription!: Subscription;
+  public data: any = [];
+  
+  constructor(private pagesService: PagesService) {}
 
   ngOnInit(): void {
     this.formRows = this.pagesService.getFormData();
+    this.loadData();
   }
 
   ngOnDestroy(): void {
-    localStorage.clear();
+    this.pagesService.clearFormData();
   }
 
- getTotal() {
+  loadData() {
+    this.pagesService.invoiceData().subscribe(response => {
+      console.log(response)
+     this.data = response
+    })
+   };
+   
+  getTotal() {
     let total = 0;
     for (const row of this.formRows) {
       const count = parseInt(row.count, 10);
@@ -33,9 +41,4 @@ export class PreviewInvoiceComponent implements OnDestroy {
     }
     return total.toFixed(2);
   }
-
- // getTotal() {
-  
- // }
-
 }

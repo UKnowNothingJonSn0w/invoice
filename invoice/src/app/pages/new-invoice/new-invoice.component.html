@@ -1,9 +1,9 @@
 
-<form  method="POST" [formGroup]="addShipForm" (ngSubmit)="addShip()">
+<form  method="POST" [formGroup]="addInvoiceForm" (ngSubmit)="addData()">
   <div class="formularz" *ngFor="let item of items">
     <mat-form-field>
       <mat-label>Name</mat-label>
-      <input matInput type="text" class="form-control" formControlName="name" matInput
+      <input  type="text" class="form-control" formControlName="name" matInput
         [formControl]="item.nameFormControl">
       <!---   <mat-error *ngIf="emailFormControl.hasError('required')">
         Email is <strong>required</strong>
@@ -11,11 +11,11 @@
     </mat-form-field>
     <mat-form-field>
       <mat-label>Count</mat-label>
-      <input matInput type="number" class="form-control" formControlName="count" matInput [formControl]="item.countFormControl">
+      <input  type="number" class="form-control" formControlName="count" matInput [formControl]="item.countFormControl">
     </mat-form-field>
     <mat-form-field>
       <mat-label>Price</mat-label>
-      <input matInput type="number" matInput [formControl]="item.priceFormControl" class="form-control"
+      <input  type="number" matInput [formControl]="item.priceFormControl" class="form-control"
         formControlName="price">
     </mat-form-field>
     <button mat-icon-button color="primary" class="delete" matTooltip="Remove item" (click)="deleteForm(item)">
@@ -23,14 +23,14 @@
     </button>
   </div>
   <div class="add-new">
-    <button mat-icon-button color="primary" class="add" matTooltip="Add new item" (click)="addForm()">
+    <button type="button" mat-icon-button color="primary" class="add" matTooltip="Add new item" (click)="addForm()">
       <mat-icon>add</mat-icon>
       Add new item
     </button>
   </div>
   <div class="add">
-    <button class="myButton" id="add_ship_button">
-      Add Ship
+    <button mat-icon-button color="primary" class="myButton" id="add_data_button">
+      Submit
     </button>
   </div>
 </form>

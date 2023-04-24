@@ -1,51 +1,45 @@
 <div fxShow="true">
-  <div class="body">
-    <mat-drawer-container class="example-container" fxHide.lt-md>
-      <mat-drawer mode="side" opened>
-        <mat-toolbar>
-          <mat-toolbar-row>
-            <span>MENU</span>
-          </mat-toolbar-row>
-        </mat-toolbar>
-        <div fxShow="true" fxHide.lt-md>
-          <div class="nav" style="display:flex;flex-direction:column;">
-            <a routerLink="/new-invoice">New Invoice</a>
-            <a routerLink="/preview-invoice">Preview Invoice</a>
-          </div>
-        </div>
-      </mat-drawer>
-      <mat-drawer-content>
-        <mat-toolbar color="primary">
-          <mat-toolbar-row>
-            <h1>KLG invoice generator</h1>
-          </mat-toolbar-row>
-        </mat-toolbar>
-        <div class="route">
-          <router-outlet></router-outlet>
-        </div>
-      </mat-drawer-content>
-    </mat-drawer-container>
-    <!-- NA DOLE Mały EKRAN U GORY duży-->
-    <div class="body2" fxHide.gt-sm>
-      <mat-toolbar color="primary">
-        <button class="menu-button" mat-icon-button (click)="sidenav.toggle()" fxShow="true" color="primary">
-          <mat-icon>menu</mat-icon>
-        </button>
-        <span>KLG invoice generator</span>
+  <mat-drawer-container class="example-container" fxHide.lt-md>
+    <mat-drawer mode="side" opened>
+      <mat-toolbar>
+        <mat-toolbar-row>
+          <span>Menu</span>
+        </mat-toolbar-row>
       </mat-toolbar>
-      <mat-sidenav-container fxFlexFill class="example-container">
-        <mat-sidenav #sidenav fxLayout="column">
-          <div fxLayout="column">
-            <a routerLink="/new-invoice">New Invoice</a>
-            <a routerLink="/preview-invoice">Preview Invoice</a>
-          </div>
-        </mat-sidenav>
-        <mat-sidenav-content fxFlexFill>
-          <div class="route">
-            <router-outlet></router-outlet>
-          </div>
-        </mat-sidenav-content>
-      </mat-sidenav-container>
-    </div>
+      <div fxShow="true" fxHide.lt-md>
+        <div class="nav" style="display:flex;flex-direction:column;width: 199px;">
+          <a routerLink="/new-invoice" routerLinkActive="active-link">New Invoice</a>
+          <a routerLink="/preview-invoice" routerLinkActive="active-link">Preview Invoice</a>
+        </div>
+      </div>
+    </mat-drawer>
+    <mat-drawer-content>
+      <mat-toolbar color="primary">
+        <mat-toolbar-row>
+          <h1>KLG invoice generator</h1>
+        </mat-toolbar-row>
+      </mat-toolbar>
+    </mat-drawer-content>
+  </mat-drawer-container>
+  <!-- NA DOLE Mały EKRAN U GORY duży-->
+  <div class="body2" fxHide.gt-sm>
+    <mat-toolbar color="primary">
+      <button class="menu-button" mat-icon-button (click)="sidenav.toggle()" fxShow="true" color="primary">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>KLG invoice generator</span>
+    </mat-toolbar>
+    <mat-sidenav-container fxFlexFill class="example-container">
+      <mat-sidenav #sidenav fxLayout="column">
+        <span>Menu</span>
+        <div class="menu" fxLayout="column">
+          <a routerLink="/new-invoice">New Invoice</a>
+          <a routerLink="/preview-invoice">Preview Invoice</a>
+        </div>
+      </mat-sidenav>
+    </mat-sidenav-container>
+  </div>
+  <div class="route">
+    <router-outlet></router-outlet>
   </div>
 </div>
