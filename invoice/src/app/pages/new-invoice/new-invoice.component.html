@@ -1,37 +1,32 @@
-
-<form  method="POST" [formGroup]="addInvoiceForm" (ngSubmit)="addData()">
-  <div class="formularz" *ngFor="let item of items">
+<div *ngFor="let item of items; let i = index">
+  <form [formGroup]="item.form" (ngSubmit)="addData()">
     <mat-form-field>
       <mat-label>Name</mat-label>
-      <input  type="text" class="form-control" formControlName="name" matInput
-        [formControl]="item.nameFormControl">
-      <!---   <mat-error *ngIf="emailFormControl.hasError('required')">
-        Email is <strong>required</strong>
-      </mat-error>-->
+      <input type="text" matInput formControlName="name" maxlength="30" minlength="3" required>
+      <mat-error *ngIf="item.form.get('name').hasError('required')">Name is required</mat-error>
     </mat-form-field>
     <mat-form-field>
       <mat-label>Count</mat-label>
-      <input  type="number" class="form-control" formControlName="count" matInput [formControl]="item.countFormControl">
+      <input type="number" matInput formControlName="count" maxlength="100" minlength="1">
     </mat-form-field>
     <mat-form-field>
       <mat-label>Price</mat-label>
-      <input  type="number" matInput [formControl]="item.priceFormControl" class="form-control"
-        formControlName="price">
+      <input type="number" matInput formControlName="price" maxlength="1000000" minlength="1" required>
+      <mat-error *ngIf="item.form.get('price').hasError('required')">Price is required</mat-error>
     </mat-form-field>
-    <button mat-icon-button color="primary" class="delete" matTooltip="Remove item" (click)="deleteForm(item)">
+    <button mat-icon-button color="primary" class="delete" matTooltip="Remove item" (click)="deleteForm(i)">
       <mat-icon>delete</mat-icon>
     </button>
-  </div>
-  <div class="add-new">
-    <button type="button" mat-icon-button color="primary" class="add" matTooltip="Add new item" (click)="addForm()">
-      <mat-icon>add</mat-icon>
-      Add new item
-    </button>
-  </div>
-  <div class="add">
-    <button mat-icon-button color="primary" class="myButton" id="add_data_button">
-      Submit
-    </button>
-  </div>
-</form>
-
+  </form>
+</div>
+<div class="add-new">
+  <button type="button" mat-icon-button color="primary" class="add" matTooltip="Add new item" (click)="addForm()">
+    <mat-icon>add</mat-icon>
+    Add new item
+  </button>
+</div>
+<div class="submit">
+  <button mat-icon-button color="primary" class="myButton" type="submit" (click)="addData()">
+    Submit
+  </button>
+</div>

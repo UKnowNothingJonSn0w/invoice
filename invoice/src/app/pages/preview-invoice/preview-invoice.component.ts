@@ -30,15 +30,18 @@ export class PreviewInvoiceComponent implements OnDestroy {
     })
    };
    
-  getTotal() {
-    let total = 0;
-    for (const row of this.formRows) {
-      const count = parseInt(row.count, 10);
-      const price = parseFloat(row.price);
-      if (!isNaN(count) && !isNaN(price)) {
-        total += count * price;
-      }
+  getTotal(rows: any[]) {
+  let total = 0;
+  for (const row of rows) {
+    console.log(row); 
+    const count = parseInt(row.count, 10);
+    const price = parseFloat(row.price);
+    console.log(count, price); 
+    if (!isNaN(count) && !isNaN(price)) {
+      total += count * price;
     }
-    return total.toFixed(2);
   }
+  console.log(total);
+  return total.toFixed(2);
+}
 }
