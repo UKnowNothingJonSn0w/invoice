@@ -1,75 +1,70 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroupDirective, NgForm, Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { PagesService } from '../pages.service';
 import { Router } from '@angular/router';
- 
+
+interface FormItem {
+  form: FormGroup;
+}
+
+interface FormRow {
+  name: string;
+  count: number;
+  price: string;
+}
+
 @Component({
   selector: 'app-new-invoice',
   templateUrl: './new-invoice.component.html',
   styleUrls: ['./new-invoice.component.css']
 })
-export class NewInvoiceComponent implements OnInit {
- 
+export class NewInvoiceComponent implements OnInit, OnDestroy {
+
   addInvoiceForm!: FormGroup;
-  get addInvoiceF() { return this.addInvoiceForm.controls; }
- 
-  items: any[] = [
-    { form: new FormGroup({
-        name: new FormControl('', Validators.required),
-        count: new FormControl(''),
-        price: new FormControl('', Validators.required)
-      })
-    }
-  ];
- 
-  formRows: any[] = [{ name: '', count: 1, price: '' }];
- 
+  items: FormItem[] = [{ form: this.createItemForm() }];
+  formRows: FormRow[] = [{ name: '', count: 1, price: '' }];
+
   constructor(
     private formBuilder: FormBuilder,
     private pagesService: PagesService,
     private router: Router
-  ) {
-    window.addEventListener('beforeunload', () => {
-      for (let key in localStorage) {
-        if (key.includes('formRows')) {
-          localStorage.removeItem(key);
-        }
-      }
-    });
-  }
- 
- 
+  ) {}
+
   ngOnInit(): void {
     this.addInvoiceForm = this.formBuilder.group({
       name: ['', Validators.required],
-      count: ['', ],
+      count: [''],
       price: ['', Validators.required],
     });
   }
- 
+
+  ngOnDestroy(): void {
+    window.removeEventListener('beforeunload', this.beforeUnloadHandler);
+  }
+
+  private createItemForm(): FormGroup {
+    return this.formBuilder.group({
+      name: ['', Validators.required],
+      count: [''],
+      price: ['', Validators.required],
+    });
+  }
+
   addFormRow() {
     this.formRows.push({ name: '', count: 1, price: '' });
   }
- 
+
   addForm() {
-    const newForm = {
-      form: new FormGroup({
-        name: new FormControl('', Validators.required),
-        count: new FormControl(''),
-        price: new FormControl('', Validators.required)
-      })
-    };
+    const newForm = { form: this.createItemForm() };
     this.items.push(newForm);
   }
- 
-  deleteForm(item: any) {
-    const index = this.items.indexOf(item);
-    if (index !== -1) {
+
+  deleteForm(index: number) {
+    if (index >= 0 && index < this.items.length) {
       this.items.splice(index, 1);
     }
   }
- 
+
   addData() {
     let allFormsValid = true;
     for (const item of this.items) {
@@ -91,10 +86,12 @@ export class NewInvoiceComponent implements OnInit {
     console.log(formRows);
     this.router.navigate(['/preview-invoice']);
   }
+
+  private beforeUnloadHandler = () => {
+    for (const key in localStorage) {
+      if (key.includes('formRows')) {
+        localStorage.removeItem(key);
+      }
+    }
+  };
 }
-
-
-
-
-
-
